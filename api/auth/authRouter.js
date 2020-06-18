@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Register
 router.post('/register', (req, res) => {
-
+    const userAccount = req.body;
 })
 
 // Login
