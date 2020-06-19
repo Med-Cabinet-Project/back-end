@@ -1,5 +1,4 @@
 const db = require('../../dbConfig');
-const { as } = require('../../dbConfig');
 
 const getAll = () => {
     return db('users');
