@@ -2,19 +2,17 @@ const bcrypt = require('bcryptjs');
 const express = require('express');
 
 const { Users } = require('../../data/helpers');
-const signToken = require('../middleware/signToken');
-
+const { signToken } = require('../middleware');
 
 const router = express.Router();
 
-// Register
 router.post('/register', (req, res) => {
     const userAccount = req.body;
 
-    // hash password
+    // hash the password
     const hash = bcrypt.hashSync(userAccount.password, 14);
 
-    // overriding the plain text password with hash 
+    // override plain text password with the hash
     userAccount.password = hash;
 
     Users
@@ -27,24 +25,24 @@ router.post('/register', (req, res) => {
                 token
             }
             res.status(201).json(credentials);
-        }) .catch(error => res.status(500).json(error.message));
-})
+        })
+        .catch(error => res.status(500).json(error.message));
+});
 
-// Login
 router.post('/login', (req, res) => {
-    let {email, password } = req.body;
+    let { email, password } = req.body;
 
-    Users 
+    Users
         .findBy({ email })
         .first()
         .then(user => {
-            // check that password matches 
+            // check that passwords match
             if (user && bcrypt.compareSync(password, user.password)) {
                 delete user.password;
                 const token = signToken(user);
                 const credentials = {
                     user,
-                    token 
+                    token
                 }
                 res.status(200).json({ message: `Welcome ${user.first_name}!`, credentials });
             } else {
