@@ -1,20 +1,13 @@
 // Update with your config settings.
 
 module.exports = {
-  test: {
-    client: 'sqlite3',
-    useNullAsDefault: true,
-    migrations: {
-      directory: './data/migrations',
-    },
-    seeds: {
-      directory: './data/seeds'
-    },
-  },
 
   development: {
     client: 'sqlite3',
     useNullAsDefault: true,
+    connection: {
+      filename: './data/med-cabinet-dev.db3'
+    },
     pool: {
       afterCreate: (conn, done) => {
         conn.run('PRAGMA foreign_keys = ON', done);
@@ -29,33 +22,35 @@ module.exports = {
   },
 
   staging: {
-    client: 'pg',
-    connection: process.env.DATABASE_URL,
+    client: 'postgresql',
+    connection: {
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
+    },
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      directory: './data/migrations',
-    },
-    seeds: {
-      directory: './data/seeds'
-    },
+      tableName: 'knex_migrations'
+    }
   },
 
   production: {
-    client: 'pg',
-    connection: process.env.DATABASE_URL,
+    client: 'postgresql',
+    connection: {
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
+    },
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      directory: './data/migrations',
-    },
-    seeds: {
-      directory: './data/seeds'
-    },
+      tableName: 'knex_migrations'
+    }
   }
 
 };

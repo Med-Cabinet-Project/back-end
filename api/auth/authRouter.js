@@ -12,7 +12,7 @@ router.post('/register', (req, res) => {
     // hash the password
     const hash = bcrypt.hashSync(userAccount.password, 14);
 
-    // override plain text password with the hash
+    // override the plain text password with the hash
     userAccount.password = hash;
 
     Users
