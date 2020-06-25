@@ -6,6 +6,7 @@ const authRouter = require('./auth/authRouter');
 const usersRouter = require('./user/userRouter');
 const strainsRouter = require('./strains/strainsRouter');
 const { validateToken } = require('./middleware/');
+// const strainData = require('../strainData/strain-router')
 
 const server = express();
 
@@ -16,6 +17,7 @@ server.use(express.json());
 server.use('/api/auth', authRouter);
 server.use('/api/strains', strainsRouter);
 server.use('/api/user', validateToken, usersRouter);
+// server.use('/api/strain', strainData)
 
 server.get('/', (req, res) => res.status(200).json({ message: 'API is online' }));
 
