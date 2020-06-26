@@ -61,3 +61,25 @@ Output:
      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTI5NzI0MjIsImV4cCI6MTU5MzA1ODgyMn0.IyLS7AECSWX2WhTza-ZYGurUOZhZlhUGaKeoY1eEehA"
   }
 }
+
+
+POST /api/strains
+
+creates a new strain in the database
+
+input 
+
+{
+  strain: "Snow White"
+}
+
+Output:
+
+[
+  {
+    id: 1,
+    strain: "Snow White"
+  }
+]
+
+Helper Routes 
