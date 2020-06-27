@@ -17,16 +17,16 @@ exports.up = function (knex) {
             tbl.string('last_name', 128)
                 .notNullable();
             
-            tbl.integer('depression', false)
+            tbl.integer('depression', null)
                 .notNullable();
 
-            tbl.integer('insomnia', false)
+            tbl.integer('insomnia', null)
                 .notNullable();
 
-            tbl.integer('creative', false)
+            tbl.integer('creative', null)
                 .notNullable();
 
-            tbl.integer('energetic', false)
+            tbl.integer('energetic', null)
                 .notNullable();
 
             
