@@ -16,6 +16,20 @@ exports.up = function (knex) {
 
             tbl.string('last_name', 128)
                 .notNullable();
+            
+            tbl.integer('depression', false)
+                .notNullable();
+
+            tbl.integer('insomnia', false)
+                .notNullable();
+
+            tbl.integer('creative', false)
+                .notNullable();
+
+            tbl.integer('energetic', false)
+                .notNullable();
+
+            
         })
         .createTable('strains', tbl => {
             tbl.increments('id');
