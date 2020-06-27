@@ -1,3 +1,4 @@
+const { on, off } = require("../dbConfig");
 
 exports.up = function (knex) {
     return knex.schema
@@ -17,16 +18,16 @@ exports.up = function (knex) {
             tbl.string('last_name', 128)
                 .notNullable();
             
-            tbl.integer('depression', null)
+            tbl.integer('depression', off)
                 .notNullable();
 
-            tbl.integer('insomnia', null)
+            tbl.integer('insomnia', off)
                 .notNullable();
 
-            tbl.integer('creative', null)
+            tbl.integer('creative', off)
                 .notNullable();
 
-            tbl.integer('energetic', null)
+            tbl.integer('energetic', off)
                 .notNullable();
 
             
