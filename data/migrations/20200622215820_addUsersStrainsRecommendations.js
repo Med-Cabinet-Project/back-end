@@ -18,26 +18,24 @@ exports.up = function (knex) {
             tbl.string('last_name', 128)
                 .notNullable();
             
-            tbl.integer('depression', off)
-                .notNullable();
+        //     tbl.integer('depression', off)
+        //         .notNullable();
 
-            tbl.integer('insomnia', off)
-                .notNullable();
+        //     tbl.integer('insomnia', off)
+        //         .notNullable();
 
-            tbl.integer('creative', off)
-                .notNullable();
+        //     tbl.integer('creative', off)
+        //         .notNullable();
 
-            tbl.integer('energetic', off)
-                .notNullable();
+        //     tbl.integer('energetic', off)
+        //         .notNullable();
+        // })
+        // .createTable('strains', tbl => {
+        //     tbl.increments('id');
 
-            
-        })
-        .createTable('strains', tbl => {
-            tbl.increments('id');
-
-            tbl.string('strain', 128)
-                .unique()
-                .notNullable();
+        //     tbl.string('strain', 128)
+        //         .unique()
+        //         .notNullable();
 
         })
         .createTable('recommendations', tbl => {
