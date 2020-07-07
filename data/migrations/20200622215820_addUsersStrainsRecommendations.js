@@ -29,13 +29,13 @@ exports.up = function (knex) {
 
         //     tbl.integer('energetic', off)
         //         .notNullable();
-        // })
-        // .createTable('strains', tbl => {
-        //     tbl.increments('id');
+        })
+        .createTable('strains', tbl => {
+            tbl.increments('id');
 
-        //     tbl.string('strain', 128)
-        //         .unique()
-        //         .notNullable();
+            tbl.string('strain', 128)
+                .unique()
+                .notNullable();
 
         })
         .createTable('recommendations', tbl => {
